@@ -16,7 +16,7 @@ let connectDB = async () => {
 
 let app = express();
 
-app.use(express.urlencoded({ extended: true })); // todo
+app.use(express.urlencoded({ extended: true })); 
 
 //! home page
 app.get("/", (req, res) => {
@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
 
 //! form page
 app.get("/register", (req, res) => {
-  //   res.send("form page");
+  
   res.sendFile(__dirname + "/Pages/form.html");
 });
 
@@ -50,14 +50,7 @@ app.get("*", (req, res) => {
 //! handle form submit
 app.post("/abc", async (req, res) => {
 
-  //! use the same endpoint in the form action
-  //! set form method to "post"
-  //! provide values to name attribute in the form
-  //   console.log(req.body);
-  //? { userEmail: 'abc@gmail.com', userName: 'abc', userPassword: '123456' }
-
-  //   let values = req.body;
-  //   console.log(values);
+  
 
   let { userEmail, userName, userPassword } = req.body;
   //   console.log(userEmail, userPassword, userName);
@@ -86,6 +79,3 @@ app.listen(9000, (err) => {
   console.log("server running at http://localhost:9000");
 });
 
-//! in json file, default script command to run the file is "start" --> npm start
-//! if we are writing command other than "start" then we have to type --> npm run command-name
-// example --> npm run abc
